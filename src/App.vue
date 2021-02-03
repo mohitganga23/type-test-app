@@ -1,11 +1,21 @@
 <template>
   <div class="container" v-if="showBtn">
-    <div class="center">
-      <p id="title">Take a free typing test</p>
-      <p id="desc">Type a short piece of text to find out how fast can you type. Test your typing speed in words per minute. </p> 
-      <p id="subtext">The test will take only 2-3 minutes! You can practice as much as necessary because you have no limits.</p>
-      <button class="button" @click="startTest">Take the test !</button> 
-    </div>     
+  <div class="split left">
+      <div class="centered">
+        <img 
+          src="./assets/4401280.jpg"/>
+      </div>
+    </div>
+
+    <div class="split right">
+      <div class="centered">
+        <p id="title">Take a free typing test</p>
+        <p id="desc">Type a short piece of text to find out how fast can you type. Test your typing speed in words per minute. </p> 
+        <button class="button" @click="startTest">
+        Take the Test!
+        </button>
+      </div>
+    </div>
   </div>  
   <div v-if="isActive">
     <Home/>
@@ -49,18 +59,9 @@ export default {
 }
 
 .container{
-  height: 200px;
   position: relative;
 }
 
-.center {
-  margin: 0;
-  position: absolute;
-  top: 120%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
 
 #title {
   font-size: 30px;
@@ -69,16 +70,11 @@ export default {
 }
 
 #desc {
-  margin: 8px 0 ;
-  font-size: 24px;
+  margin: 4px 0 ;
+  font-size: 18px;
   font-weight: 500;
 }
 
-#subtext {
-  font-size: 18px;
-  font-style: italic;
-  margin-top: 0;
-}
 
 p{
   font-family: 'Red Hat Display', sans-serif;
@@ -93,16 +89,53 @@ p{
   color: #55c5ff;
   padding: 15px 32px;
   text-align: center;
+  margin-top: 8px;
   vertical-align: middle; 
   text-decoration: none;
   display: inline-block;
-  font-size: 24px;
+  font-size: 24px;  
   border-radius: 30px;
 }
 
 .button:hover{
   cursor: pointer;
-  
+}
+
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+  background-color: #fff;
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+  background-color: #55c5ff;
+}
+
+/* If you want the content centered horizontally and vertically */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* Style the image inside the centered container, if needed */
+.centered img {
+  width: 350px;
+  border-radius: 50%;
 }
 
 </style>
